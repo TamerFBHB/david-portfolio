@@ -1,0 +1,19 @@
+1- Install sass from this link :
+        npm install --save-dev sass
+
+2- To import SASS in NEXT JS we must configure in file next.config.js To:
+
+*****************************************************************
+/** @type {import('next').NextConfig} */
+
+const path =require('path')
+const nextConfig = {
+    ReactStrickMode:true,
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'styles')],
+    },
+}
+
+module.exports = nextConfig
+
+******************************************************************

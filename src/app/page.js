@@ -1,95 +1,77 @@
+
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./page.module.scss";
+import { CiClock1 } from "react-icons/ci";
+import { FaArrowUp } from "react-icons/fa6";
+import PulseDott from "@/component/pulseDott/PulseDott";
+import download from '../../public/download.png'
+
+
 
 export default function Home() {
   return (
     <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+      <div className={styles.about}>
+        <div className={styles.imgBox}>
+          <Image src="https://wpriverthemes.com/HTML/stag/assets/imgs/hero.jpg"
+            alt="hero" width={300} height={410} />
+        </div>
+
+        <div className={styles.hero}>
+
+          <div className={styles.headerHero}>
+
+            <div className={`${styles.tap} ${styles.freelance }`}>
+              <PulseDott />
+              Avalible for freelance work
+            </div>
+
+            <div className={`${styles.tap} ${styles.clockBox}`}>
+              <CiClock1 className={styles.Clock} />
+              Sunday,25Fabruary,2024
+            </div>
+
+            <div className={`${styles.tap} ${styles.contact}`}>
+              <div className={styles.one}>
+                contact me
+                <FaArrowUp className={styles.arrow} />
+              </div>
+              <div className={styles.two}>
+                contact me
+                <FaArrowUp className={styles.arrow} />
+              </div>
+            </div>
+
+          </div>
+
+          <div className={styles.bodyHero}>
+
+            <div className={styles.inform}>
+              <p>A WEB DEVELOPER</p>
+              <h1>David Henderson 👋🏽</h1>
+              <p>I am a San francisco-based product designer with a focus on web design, illustration, a visual development. I have a diverse range of experience and industries.</p>
+              <div className={styles.sign}>
+                <Image src='https://wpriverthemes.com/HTML/stag/assets/imgs/signeture.svg'
+                  alt="signeture" width={100} height={60} />
+              </div>
+            </div>
+            <div className={styles.myContact}>
+              
+              <div className={styles.headerContact}>
+                <div className={styles.adress}>
+                  44 Baker Street,sa
+                </div>
+                <div className={styles.place}>
+                  Usa
+                </div>
+                <Image src={download} alt="download" width={500} height={500} className={styles.earth}/>
+              </div>
+              
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
   );
 }

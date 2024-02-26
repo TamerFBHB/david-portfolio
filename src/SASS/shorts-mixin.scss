@@ -1,0 +1,133 @@
+//1- flex
+@include flex($horiental, $vertical);
+
+//2- flex & column
+@include flex-col($horiental, $vertical);
+
+//3- grid-column
+@include grid-cols($col);
+
+//4- grid-row
+@include grid-cols($row);
+
+//5-  create circle
+@include circle($dimention);
+
+//6- create width & height
+@include size($w, $h);
+
+// 7- position absolute center
+@include center;
+
+// 8- background image
+@include bg-img($url);
+
+//9- background image with filter
+@include bg-img-filter($w, $h);
+
+// 10- input without border & outline & padding:
+@include input;
+
+// 11- blur
+@include blur;
+
+// 11- blur background
+@include blur-bg($color);
+
+// 12- animation gradient background with hover must write 3 color ($clr1 0% , $clr2 51% , $clr3 100%)
+@include bg-grid-hover($clr1, $clr2, $clr3);
+
+//13- change backgroun when hover in The opposite trend
+@include bg-clr-opposite($clr-Background, $clr-text, $bord-radius);
+
+//14 change background-color when hover from top
+@include bg-clr-top($clr1, $clr2);
+
+//15 change background-color when hover from left
+@include bg-clr-left($clr1, $clr2);
+
+// 16- animation gradient background infinite must write 4 color ($clr1 , $clr2 , $clr3 ,$clr4)
+@include bg-grid-infinite($clr1, $clr2, $clr3, $clr4);
+
+// 17-  animation border color with background gradient must write (width , height , background-color-1 ,background-color-2 , border-color-1 ,border-color-2)
+@include animation-border(  $w,  $h, $background-color-1,  $background-color-2,  $border-color-1,  $border-color-2);
+
+// 18-  parallax Effect  صفحه بتتحرك على خلفيه ثابته
+@include parallax($url);
+
+//19- text graidient
+@include text-gradient($direction, $font, $clr1, $clr2);
+
+//20- make React icon bold
+@include icon-Bold($w, $color);
+
+//21- text vertical
+@include text-vertical;
+
+// 22- text strock لكتابه كلمات مفرغه
+@include text-stroke($size-Strock,$clr-Strock, $clr-background, $size, $weight);
+
+//23 any image become gray
+@include img-gray ;
+
+//24 border gradient
+@include border-gradient($w,$clr1,$clr2,$clr3);
+
+  //25 border-top gradient
+@include border-top-gradient($w,$clr1,$clr2,$clr3);
+
+//26 border-bottom gradient
+@include border-bottom-gradient($w,$clr1,$clr2,$clr3);
+
+//27 border-right gradient
+@include border-right-gradient($w,$clr1,$clr2,$clr3);
+
+//28 border-left gradient
+@include border-left-gradient($w,$clr1,$clr2,$clr3);
+
+//47 animation line under text
+@include anim-line ($textClr , $gridClr1 , $gridClr2);
+/*=========================================
+************** media screen **************
+===========================================*/
+@include screen($size){
+  
+};
+
+
+/*======================================================================
+************** Animation **************
+========================================================================*/
+//  animation ( FromRight - FromLeft - FromBottom - FromTop - FadeIn - FadeOut - zoomIn - span )
+@include animation-time($animation, $transition);
+
+//  animation ( FromRight - FromLeft - FromBottom - FromTop - FadeIn - FadeOut - zoomIn - span )
+@include animation($animation);
+
+
+
+
+
+
+
+/*======================================================================
+************** Loder **************
+======================================================================*/
+
+// #############   Animation spin 2 color   #############
+@include  spin2clr($clr1,$clr2);
+
+//  #############   Animation yoyo   #############
+@include yoyo($clr);
+
+// #############   puls sun  #############
+@include puleSun( $clr);
+
+// #############   disco   #############
+@include  disco($clr);
+
+// #############   bing-bong   #############
+@include bing-bong ($clr);
+
+// #############   akrobat   #############
+@include akrobat ($clr1,$clr2);

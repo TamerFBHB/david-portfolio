@@ -1,0 +1,173 @@
+@use '../SASS/Main' as*;
+
+.main{    
+    background-color: var(--bg-back) ;
+    border: 1px solid var(--mix-bg-back);
+    @include size(100% , 100%);
+    color: white;
+    margin: 10px 50px;
+    padding: 20px;
+
+    @include mq(720px){
+    }
+}
+
+.about{
+    @include flex(center,center);
+    gap: 20px;
+}
+
+.hero{
+    @include flex-col(start, start);
+    gap: 10px;
+}
+.headerHero{
+    @include flex(space-between,center);
+    border: 1px solid var(--mix-bg-back);
+    background-color: var(--bg-card);
+    padding: 10px;
+    gap: 10px
+}
+//freelance  *************
+.freelance {
+    @include flex(center,center);
+    @include size(270px , 50px);
+    gap: 5px;
+    text-transform: capitalize;
+}
+//*************
+//clock *************
+.clockBox{
+    @include size(250px , 50px);
+    @include flex(center,center);
+    background-color: var(--bg-card);
+    text-transform: capitalize;
+}
+.Clock{
+    fill: $cyan-5;    
+    margin-right: 5px;
+}
+
+//*************
+//contact *************
+.contact{
+    width: 150px;
+    @include flex(center,center);
+    overflow: hidden;
+    text-transform: capitalize;
+    border: 1px solid var(--mix-bg-back);
+}
+.headerHero .tap{
+    position: relative;
+    height: 50px;
+    background-color: var(--bg-card-slide);
+    border: 1px solid var(--mix-bg-back);
+    overflow: hidden;
+    gap: 1px;
+
+    &:hover .two{        
+        visibility: visible;
+        opacity:1;
+        transform: translateY(0px);
+        }
+    &:hover .one{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+}
+.arrow{
+    rotate: 45deg;
+    transform: translateY(5px);
+    margin-left: 8px;
+}
+
+.two{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+    color: $cyan-5;
+    transition: 0.5s;
+}
+.one{    
+    position: absolute;
+    transition: 0.5s;
+}
+
+
+//*************
+
+//bodyHero *************
+.bodyHero{
+    @include size(100% , 100%);
+    @include flex(start, center);
+    gap: 10px;
+}
+.inform{
+    @include size(55% , 100%);
+    @include flex-col(start, start);
+    background-color: var(--bg-card);
+    border: 1px solid var(--mix-bg-back);
+    padding : 20px;
+    gap: 10px;
+}
+.inform p{
+    color: var(--txt-clr);
+    line-height: 30px;
+    font-size: 14px;
+}
+.sign{
+    @include size(100% , 100%);
+    @include flex-col(center, end);
+}
+//*************
+
+//contact Me *************
+.myContact{
+    @include size(45% , 300px);
+    background-color: var(--bg-card);
+    border: 1px solid var(--mix-bg-back);
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.headerContact{
+    @include flex(center, center);
+    @include size(100% , 50px);
+    gap: 15px;
+}
+.adress{
+    
+    border: 1px solid var(--mix-bg-back);
+    color: white;
+    font-size: 14px;
+    text-transform: capitalize;
+    background-color: var(--bg-card-slide);
+    padding: 15px 20px;
+}
+
+.place{    
+    border: 1px solid var(--mix-bg-back);
+    color: white;
+    font-size: 14px;
+    text-transform: capitalize;
+    background-color: var(--bg-card-slide);
+    padding: 15px 20px;
+}
+.earth{
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    right: -200px;
+    bottom: -230px;
+    animation: span 10s infinite linear ;
+}
+@keyframes span {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

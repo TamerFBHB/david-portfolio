@@ -1,0 +1,51 @@
+
+
+
+.wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #333;
+  position: relative;
+  overflow: hidden;
+  & h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 30px;
+    z-index: 3;
+  }
+  &::before {
+    position: absolute;
+    content: "";
+    inset: -10px 15px;
+    background: linear-gradient(315deg, blue, red);
+    transition: 0.5s;
+    animation: spin 4s linear infinite;
+  }
+  &:hover::before {
+    inset: -20px 0px;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    inset: 4px;
+    background: #222;
+    border-radius: 50%;
+    z-index: 1;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

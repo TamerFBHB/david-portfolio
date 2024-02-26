@@ -1,0 +1,16 @@
+
+to be color icon is gradient:
+in file.js from react-icon :   
+
+     <svg width="1em" height="1em">
+        <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+          <stop stopColor="#C92A2A " offset="0%" />
+          <stop stopColor="#7a6ded" offset="100%" />
+        </linearGradient>
+      </svg>
+
+in css for react-icon:
+to change color of icon :
+
+
+fill:  url(#blue-gradient)

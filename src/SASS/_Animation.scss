@@ -1,0 +1,179 @@
+
+// from right
+@keyframes FromRight {
+    0%{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+//#########################
+
+// from left
+@keyframes FromLeft {
+    0%{
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+//#########################
+
+//FromBottom
+@keyframes FromBottom {
+    0%{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+//#########################
+
+//FromTop
+@keyframes FromTop {
+    0%{
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+//#########################
+
+//FadeIn
+@keyframes FadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+//#########################
+
+//FadeOut
+@keyframes FadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+//#########################
+
+//zoomIn
+@keyframes zoomIn {
+    0%{
+        transform:scale(0.7);
+        opacity: 0;      
+    }
+    100%{
+        transform:scale(1);
+        opacity: 1;
+    }
+}
+
+//#########################
+
+//zoomOut
+@keyframes zoomOut {
+    0%{
+        transform:scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform:scale(0.7);
+        opacity: 0;      
+    }
+}
+
+//#########################
+//animation for close button
+
+@keyframes span {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+    
+}
+
+//#########################
+
+// animation for button puls
+
+@keyframes puls {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    40%{
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    60%{
+        transform: scale(0.6);
+    }
+    80%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+//#########################
+
+// animation for button puls2
+
+@keyframes puls2 {
+    0%{
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    40%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    70%{
+        transform: scale(0.95);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+//#########################
+
+@mixin animation($animation ){
+    animation: $animation 0.5s  linear 1 forwards ;
+}
+@mixin animation-time($animation,$transition,$delay ){
+    animation: $animation $transition  $delay linear 1 forwards ;
+}
+
+//#########################
+
+
+
+

@@ -1,0 +1,45 @@
+@use '../SASS/Main' as *;
+
+
+%close{
+    content: "";
+    position: absolute;
+    background-color: white;
+    transition: 0.3s;
+}
+.close{
+    position: relative;
+    @include circle(50px);
+    border: none;
+    overflow: hidden;
+    transform: rotate(5deg);
+}
+.close::after{
+    @extend %close;
+    inset: -10px 23px;
+    transform: rotate(135deg);
+}
+.close::before{
+    @extend %close;
+    inset: -10px 23px;
+    transform: rotate(30deg);
+}
+
+.close:hover{
+    animation: span 0.5s linear 1;
+}
+.close:hover::after,
+.close:hover::before{
+    background-color: red;
+}
+
+
+@keyframes span {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(180deg);
+    }
+    
+}

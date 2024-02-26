@@ -1,0 +1,35 @@
+@use '../../SASS/Main' as* ;
+
+.dott{
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+        position: relative;
+    }
+    .dott::after,
+    .dott::before {
+        content: '';  
+        box-sizing: border-box;
+        width:  40px;
+        height:  40px;
+        border-radius: 50%;
+        background: green;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: animloader 3s linear infinite;
+    }
+    .dott::after {
+        animation-delay: 1s;
+    }
+    
+    @keyframes animloader {
+        0% {
+        transform: scale(0);
+        opacity: 1;
+        }
+        100% {
+        transform: scale(0.8);
+        opacity: 0;
+        }
+    }

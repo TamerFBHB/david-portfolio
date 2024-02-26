@@ -1,0 +1,32 @@
+@use '../../SASS/Main' as *;
+
+
+.sideBar{
+    @include flex-col(start,center);
+    padding: 20px;
+    margin-top: 10px;
+    margin-left:  10px;
+    @include size (500px , 100%);
+    background-color: var(--bg-back) ;
+    border: 1px solid var(--mix-bg-back);
+    color: white;
+}
+.header{
+    width: 100%;
+    @include flex(space-between,center);
+}
+.logoContainer{    
+    @include flex(start,center);
+    gap: 10px;
+}
+.logoContainer h2{
+    font-size: 20px;
+}
+.logo{
+    background-color: var(--bg-card);
+    padding: 8px 10px;
+}
+.clock{
+    color: var(--text-clock);
+    font-size: 20px;
+}

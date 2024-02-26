@@ -1,0 +1,47 @@
+@use "../../SASS/Main" as *;
+
+.wave-background{
+    position: relative;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: #0217ff;
+    overflow: hidden;
+}
+.wave{
+    position: absolute;
+    top: 0;
+    left: -70%;;
+    bottom: 0;
+    border-radius: 43%;
+    animation: drift 7s infinite linear;
+}
+.one{
+    background-color:  #0e6cc4;
+    width: 1400px;
+    height: 1200px;    
+    animation: drift 4s infinite linear;
+    opacity: 0.6;
+    z-index: 2;
+}
+.two{
+    background-color: green;
+    width: 1500px;
+    height: 1200px;
+    opacity: 0.6;
+    z-index: 1;
+}
+.three{
+    background-color: #f1ff00;
+    width: 1500px;
+    height: 1300px;    
+    animation: drift 5s infinite linear;
+    z-index: 0;
+}
+@keyframes drift {
+    0% {
+        transform: rotate(0deg);
+    }
+    0% {
+        transform: rotate(360deg);
+    }
+}

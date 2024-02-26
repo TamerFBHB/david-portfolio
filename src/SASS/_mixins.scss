@@ -1,0 +1,300 @@
+//1- flex
+@mixin flex($horiental, $vertical) {
+  display: flex;
+  justify-content: $horiental;
+  align-items: $vertical;
+}
+
+//2- flex & column
+@mixin flex-col($horiental, $vertical) {
+  display: flex;
+  justify-content: $horiental;
+  align-items: $vertical;
+  flex-direction: column;
+}
+//3- grid-column
+@mixin grid-cols($col) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($col, 1fr));
+}
+
+//4- grid-row
+@mixin grid-rows($row) {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax($row, 1fr));
+}
+
+//5-  create circle
+@mixin circle($dimention) {
+  border-radius: 50%;
+  width: $dimention;
+  height: $dimention;
+  border: 2px solid black;
+}
+
+//6- create width & height
+@mixin size($w, $h) {
+  width: $w;
+  height: $h;
+}
+
+//7- position absolute center
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 8- background image
+@mixin bg-img($url) {
+  background-image: url($url);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+//9- background image with filter
+@mixin bg-img-filter($w, $h) {
+  width: $w;
+  height: $h;
+  background-image: linear-gradient(rgba(4, 9, 30, 0.4), rgba(4, 9, 30, 0.4)),
+    url(/assets/img/uni-hall.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 5px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+// 10- input without border & outline & padding:
+@mixin input {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+}
+
+// 11- blur
+@mixin blur {
+  filter: blur(4px);
+}
+
+// 11- blur background
+@mixin blur-bg($color) {
+  background-color: rgba($color , 40%);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+// 12- change gradient background with hover must write 4 color ($clr1 , $clr2 , $clr3 ,$clr4)
+@mixin bg-grid-hover($clr1, $clr2, $clr3) {
+  background-image: linear-gradient(to right, $clr1 0%, $clr2 51%, $clr3 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  background-size: 200% auto;
+  transition: 0.5s;
+  &:hover {
+    background-position: right center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  }
+}
+
+//13- change background color when hover from top
+@mixin bg-clr-top($clr1, $clr2) {
+  background: linear-gradient(to bottom, $clr1 50%, $clr2 50%);
+  background-size: 100% 200%;
+  background-position: bottom right;
+  transition: 0.5s;
+  &:hover {
+    background-position: top right;
+    color: white;
+  }
+}
+
+//14- change background color when hover from left
+@mixin bg-clr-left($clr1, $clr2) {
+  background-image: linear-gradient(to left, $clr1 50%, $clr2 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: 0.5s;
+  &:hover {
+    background-position: left top;
+    color: white;
+  }
+}
+
+//15- change backgroun when hover in The opposite trend
+@mixin bg-clr-opposite($clr-Background, $clr-text , $bord-radius) {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $clr-Background;
+    border-radius: $bord-radius;
+    transform: scaley(0);
+    transform-origin: left  bottom ;
+    transition: transform 0.5s linear;
+  }
+  &:hover::before {
+    transform: scaley(1);
+    transform-origin: right top;
+    color: $clr-text;
+  }
+}
+
+// 16- animation gradient background infinite must write 4 color ($clr1 , $clr2 , $clr3 ,$clr4)
+@mixin bg-grid-infinite($clr1, $clr2, $clr3, $clr4) {
+  background: linear-gradient(-45deg, $clr1, $clr2, $clr3, $clr4);
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// 17-  animation border color
+@mixin animation-border(
+  $w,
+  $h,
+  $background-color-1,
+  $background-color-2,
+  $border-color-1,
+  $border-color-2
+) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: $w;
+  height: $h;
+  border-radius: 10px;
+  border: 3px solid #0000;
+  background: linear-gradient($background-color-1, $background-color-2)
+      padding-box,
+    linear-gradient(var(--angle), $border-color-1, $border-color-2) border-box;
+  animation: 8s rotate linear infinite;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+// 18-  parallax Effect  صفحه بتتحرك على خلفيه ثابته
+@mixin parallax($url) {
+  position: relative;
+  background: url($url);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+//19- text graidient
+@mixin text-gradient($direction, $font, $clr1, $clr2) {
+  background: linear-gradient(to $direction, $clr1 30%, $clr2 60%);
+  background-clip: text; 
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: $font;
+}
+
+//20-  make React icon bold
+@mixin icon-Bold($w, $color) {
+  stroke-width: $w;
+  stroke: $color;
+}
+
+//21- text vertical
+@mixin text-vertical {
+  writing-mode: vertical-rl;
+}
+
+//22- text strock لكتابه كلمات مفرغه
+@mixin text-stroke($size-Strock,$clr-Strock, $clr-background, $size, $weight) {
+  -webkit-text-stroke: $size-Strock  $clr-Strock;
+  color: $clr-background;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: 80px;
+}
+
+//23- image become gary
+@mixin img-gray{
+  filter: contrast(0);
+}
+
+//24 border gradient
+@mixin border-gradient($w,$clr1,$clr2,$clr3){
+  border: $w solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, $clr1,$clr2,$clr3)
+}
+//44 border-top gradient
+@mixin border-top-gradient($w,$clr1,$clr2,$clr3){
+  border-top: $w solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, $clr1,$clr2,$clr3)
+}
+//45 border-bottom gradient
+@mixin border-bottom-gradient($w,$clr1,$clr2,$clr3){
+  border-bottom: $w solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left, $clr1,$clr2,$clr3)
+}
+//46 border-right gradient
+@mixin border-right-gradient($w,$clr1,$clr2,$clr3){
+  border-right: $w solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, $clr1,$clr2,$clr3)
+}
+//46 border-left gradient
+@mixin border-left-gradient($w,$clr1,$clr2,$clr3){
+  border-left: $w solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to bottom, $clr1,$clr2,$clr3)
+}
+
+//47 animation line under text
+@mixin anim-line ($textClr , $gridClr1 , $gridClr2){
+  font-weight: bold;
+  color: $textClr;
+  background-image: linear-gradient(90deg, $gridClr1 , $gridClr2);
+  background-repeat: no-repeat;
+  background-position: left 1.5em;
+  background-size: 0% 3px;
+  padding-block: 0.25em;
+  transition: color 1s , background-size 0.5s;
+&:hover{
+      background-size: 100% 3px;
+      color: pink;
+  }
+}
+/*=========================================
+************** media screen **************
+===========================================*/
+@mixin mq($size){
+  @media (max-width:$size) { @content; }
+}
+

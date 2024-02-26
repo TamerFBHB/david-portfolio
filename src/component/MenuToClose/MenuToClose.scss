@@ -1,0 +1,66 @@
+@use "../../SASS/Main"  as *;
+
+%closeBar{
+    content: "";
+    position: absolute;
+    background-color: white;
+    transition: 0.3s;
+  }
+  
+  .barToclose{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 40px;
+    overflow: hidden;
+    // display: none;
+  }
+  .content{
+    @extend %closeBar;
+    inset: 29px -10px 8px;
+  }
+  .barToclose::after{
+  @extend %closeBar;
+  inset: 18.5px -10px;
+  }
+  
+  .barToclose::before{
+    @extend %closeBar;    
+    inset: 8px -10px 29px;
+    z-index: 2;
+  }
+
+  .barToclose:hover .content{
+    display: none;
+  }
+  .active{
+    width: 20px;
+    height: 40px;
+  }
+  .barToclose:hover::after{
+    transform: rotate(45deg);
+    background-color: red;
+  }
+  .barToclose:hover::before{
+    inset: 18.5px -10px;
+    transform: rotate(135deg);
+    background-color: red;
+  }
+
+  .active .content{
+    display: none;
+  }
+  .active{
+    width: 20px;
+    height: 40px;
+  }
+  .active::after{
+    transform: rotate(45deg);
+    background-color: red;
+  }
+  .active::before{
+    inset: 18.5px -10px;
+    transform: rotate(135deg);
+    background-color: red;
+  }

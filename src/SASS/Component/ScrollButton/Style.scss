@@ -1,0 +1,17 @@
+@use "../../Main" as * ;
+
+.btnToTop{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    @include circle(40px);
+    border: none;
+    background-color: $blue-6;
+    @include flex(center,center);
+
+}
+.btnToTop .btn{
+    font-size: 20px;
+    fill: var(--primary);
+    @include icon-Bold(75px, var(--primary));
+}
