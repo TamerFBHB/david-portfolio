@@ -3,14 +3,15 @@
 
 .sideBar{
     @include flex-col(start,center);
-    padding: 20px;
     margin-top: 10px;
     margin-left:  10px;
+    padding: 20px;
     @include size (500px , 100%);
     background-color: var(--bg-back) ;
     border: 1px solid var(--mix-bg-back);
-    color: white;
+    color: var(--text);
 }
+//header *****
 .header{
     width: 100%;
     @include flex(space-between,center);
@@ -29,4 +30,78 @@
 .clock{
     color: var(--text-clock);
     font-size: 20px;
+}
+
+//titleContainer *****
+.titleContainer{
+    width: 100%;
+    @include flex(start,center);
+    gap: 10px;
+    margin-top: 20px;
+    border: 1px solid var(--mix-bg-back);
+    background-color: var(--bg-card);
+    padding: 20px;
+}
+.titleContainer h2{
+color: var(--text);
+font-size: 20px;
+font-weight: 300;
+}
+.titleContainer p{
+    color: var(--txt-clr);
+    font-size: 14px;
+}
+.avatar{
+    border: 1px solid var(--mix-bg-back);
+}
+.city{
+    @include flex(start,center);
+    gap: 5px;
+}
+.pin{
+    color: $cyan-5;
+}
+// links *****
+
+.links{
+    width: 100%;
+    margin-top: 40px;
+}
+.links .link{
+    width: 100%;
+    @include flex(start,center);
+    gap: 15px;
+    padding: 15px 10px;
+    font-size: 18px;
+    color: var(--text);
+}
+.icon{
+    font-size: 18px;
+    color:  $cyan-5;
+}
+.active{
+    border:  1px solid var(--mix-bg-back);
+    background-color: var(--bg-card);
+}
+//footer *****
+.footer{
+    width: 100%;
+    @include flex(space-between,center);
+    margin-top: 20px;
+}
+.footer .social{
+    border:  1px solid var(--mix-bg-back);
+    background-color: var(--bg-card);
+    @include flex(start,center);
+    padding: 10px 20px;
+    gap: 20px;
+}
+.footer .social .iconSocial{
+    font-size: 18px;
+}
+.footer .year{
+    border:  1px solid var(--mix-bg-back);
+    background-color: var(--bg-card);
+    padding: 10px 20px;
+    font-size: 17px;
 }

@@ -1,14 +1,9 @@
 @use '../SASS/Main' as*;
 
-* {
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-  }
-  *,
-  *:after,
-  *:before{
-    box-sizing: inherit;
   }
   html,
   body {
@@ -89,7 +84,7 @@
     --bg-card :#031823;
     --bg-card-slide:#031f2e;
 
-
+    --text : #fff;
     --text-clock : #BCBCBC;
     --txt-clr :#545C60;
   }
