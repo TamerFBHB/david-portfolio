@@ -3,33 +3,92 @@
 
 .sideBar{
     @include flex-col(start,center);
-    margin-top: 10px;
-    margin-left:  10px;
+    position: fixed;
+    top: 10px;
+    left:  10px;
     padding: 20px;
-    @include size (500px , 100%);
+    @include size (350px , 100%);
     background-color: var(--bg-back) ;
     border: 1px solid var(--mix-bg-back);
     color: var(--text);
+
+    @include mq(1100px){
+        @include size (150px , 100%);        
+    }
+
+    @include mq(600px){
+        inset: 10px;
+        z-index: 100;    
+        padding: 5px;
+        transition: height 0.3s ease-in-out;
+    }
+}
+
+.open {
+    @include mq(600px){
+        @include size (calc(100% - 20px) ,65%); 
+    }
+}
+.close{
+    @include mq(600px){
+        @include size (calc(100% - 20px) ,80px); 
+    }
 }
 //header *****
 .header{
     width: 100%;
     @include flex(space-between,center);
+
+    @include mq(1100px){
+        @include flex(center,center);
+    }
+
+    @include mq(600px){
+        @include flex(space-between,center);
+    }
 }
 .logoContainer{    
     @include flex(start,center);
     gap: 10px;
+
+    @include mq(1100px){
+        background-color: var(--bg-card);
+        @include size(100px , 100px );
+        @include flex(center,center);
+    }
+    @include mq(600px){
+        @include size(100% , 100% );
+        @include flex(start,center);  
+        background-color: transparent;     
+    }
+
 }
 .logoContainer h2{
     font-size: 20px;
+
+    @include mq(1100px){
+        display: none;
+    }
+    @include mq(600px){
+        display: block;       
+    }
 }
 .logo{
     background-color: var(--bg-card);
     padding: 8px 10px;
+    
+    @include mq(1100px){
+        @include size(70px , 70px );
+    }
+
 }
 .clock{
     color: var(--text-clock);
     font-size: 20px;
+
+    @include mq(1100px){
+        display: none;
+    }
 }
 
 //titleContainer *****
@@ -41,18 +100,42 @@
     border: 1px solid var(--mix-bg-back);
     background-color: var(--bg-card);
     padding: 20px;
+
+    @include mq(1100px){
+        @include size(fit-content , fit-content);
+        padding: 0px;
+        gap: 0px;
+    }
+    @include mq(600px){
+        display: none;       
+    }
 }
 .titleContainer h2{
 color: var(--text);
 font-size: 20px;
 font-weight: 300;
+
+    @include mq(1100px){
+        display: none;
+    }
+
 }
 .titleContainer p{
     color: var(--txt-clr);
     font-size: 14px;
+
+    @include mq(1100px){
+        display: none;
+    }
 }
 .avatar{
+    position: relative;
+    @include size(70px , 70px);
     border: 1px solid var(--mix-bg-back);
+
+    @include mq(1100px){
+        @include size(100px , 100px );
+    }
 }
 .city{
     @include flex(start,center);
@@ -60,12 +143,28 @@ font-weight: 300;
 }
 .pin{
     color: $cyan-5;
+
+    @include mq(1100px){
+        display: none;
+    }
 }
 // links *****
 
 .links{
     width: 100%;
     margin-top: 40px;
+
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transition: 0.5s;
+}
+.close .links{
+    @include mq(600px){
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+    }
 }
 .links .link{
     width: 100%;
@@ -74,10 +173,29 @@ font-weight: 300;
     padding: 15px 10px;
     font-size: 18px;
     color: var(--text);
+
+    @include mq(1100px){
+        @include flex-col(start,center);
+    }
+    @include mq(600px){
+        flex-direction: row;     
+    }
+}
+.links .title{
+    @include mq(1100px){
+        display: none;
+    }
+    @include mq(600px){
+        display: block;       
+    }
 }
 .icon{
     font-size: 18px;
     color:  $cyan-5;
+
+    @include mq(1100px){
+        font-size: 25px;
+     }
 }
 .active{
     border:  1px solid var(--mix-bg-back);
@@ -87,14 +205,35 @@ font-weight: 300;
 .footer{
     width: 100%;
     @include flex(space-between,center);
-    margin-top: 20px;
+    margin:  10px;
+    padding: 10px;
+
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transition: 0.5s;
 }
+.close .footer{
+    @include mq(600px){
+        visibility: hidden;
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
 .footer .social{
     border:  1px solid var(--mix-bg-back);
     background-color: var(--bg-card);
     @include flex(start,center);
     padding: 10px 20px;
     gap: 20px;
+
+    @include mq(1100px){
+        display: none;
+    }
+    @include mq(600px){
+        display: flex;       
+    }
 }
 .footer .social .iconSocial{
     font-size: 18px;
@@ -104,4 +243,8 @@ font-weight: 300;
     background-color: var(--bg-card);
     padding: 10px 20px;
     font-size: 17px;
+
+    @include mq(1100px){
+        padding: 10px 10px;
+    }
 }

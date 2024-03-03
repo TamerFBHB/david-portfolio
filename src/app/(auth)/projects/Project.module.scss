@@ -1,6 +1,4 @@
-@use '../../../SASS/Main' as * ;
-
-
+@use '../../../SASS/Main' as* ;
 
 .main{    
     @include size(calc(100% - 350px) , 100%);
@@ -15,10 +13,12 @@
         @include size(100% , 100%);      
     }
 }
-.about{
+.projects{
     background-color: var(--bg-back) ;
     border: 1px solid var(--mix-bg-back);
     @include flex(center,center);
+    flex-wrap: wrap;
+    gap: 20px;
     color: white;
     margin: 10px 40px;
     padding: 20px;
@@ -32,4 +32,20 @@
     @include mq(800px){
         margin: 10px 10px;        
     }
+}
+
+.card{
+    background-color: var(--bg-card);
+    border: 1px solid var(--mix-bg-back);
+    @include size(300px , 300px);
+    @include flex-col(center,center);
+    gap: 10px;
+    color: var(--text);
+    padding: 20px;
+    border-radius: 5px
+}
+.bodyCard{
+    @include size(100%,100%);
+    text-align: start;
+    gap: 10px;
 }

@@ -5,6 +5,8 @@ import { CiClock1 } from "react-icons/ci";
 import { FaArrowUp } from "react-icons/fa6";
 import PulseDott from "@/component/pulseDott/PulseDott";
 import download from '../../public/download.png'
+import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import Link from "next/link";
 
 
 
@@ -14,14 +16,14 @@ export default function Home() {
       <div className={styles.about}>
         <div className={styles.imgBox}>
           <Image src="https://wpriverthemes.com/HTML/stag/assets/imgs/hero.jpg"
-            alt="hero" width={300} height={410} />
+            alt="hero" fill className={styles.img} />
         </div>
 
         <div className={styles.hero}>
 
           <div className={styles.headerHero}>
 
-            <div className={`${styles.tap} ${styles.freelance }`}>
+            <div className={`${styles.tap} ${styles.freelance}`}>
               <PulseDott />
               Avalible for freelance work
             </div>
@@ -56,7 +58,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.myContact}>
-              
+
               <div className={styles.headerContact}>
                 <div className={styles.adress}>
                   44 Baker Street,sa
@@ -64,14 +66,51 @@ export default function Home() {
                 <div className={styles.place}>
                   Usa
                 </div>
-                <Image src={download} alt="download" width={500} height={500} className={styles.earth}/>
+                <Image src={download} alt="download" width={500} height={500} className={styles.earth} />
               </div>
-              
+
             </div>
           </div>
         </div>
       </div>
 
+      <div className={styles.projectContainer}>
+        <div className={styles.tapHeader}>
+
+          <div className={styles.bunner}>
+            <ul>
+              <li>⌘ It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+              <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+              <li>It is a long established fact that a reader will distracted by the readable content of a page when looking an its readable ⌘</li>
+
+            </ul>
+          </div>
+
+          <div className={styles.tap}>
+
+            <Link href="/projects" className={styles.btnProject}>
+              <div className={styles.one}>
+                Project
+                <FaArrowUp className={styles.arrow} />
+              </div>
+              <div className={styles.two}>
+                Project
+                <FaArrowUp className={styles.arrow} />
+              </div>
+            </Link>
+
+            <div className={styles.arrows}>
+              <div className={styles.leftArrow}>
+                <MdOutlineKeyboardArrowLeft className={styles.iconArrow} />
+              </div>
+              <div className={styles.rightArrow}>
+                <MdOutlineKeyboardArrowRight className={styles.iconArrow} />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

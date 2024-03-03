@@ -9,41 +9,51 @@ import { LuMapPin } from "react-icons/lu";
 import { HiPaperClip } from "react-icons/hi2";
 import { GrProjects } from "react-icons/gr";
 import { BsFillFolderFill, BsInstagram, BsTwitterX } from "react-icons/bs";
+import MenuToClose from '../MenuToClose/MenuToClose';
+import { useState } from 'react';
 
 
 
 
 const SideBar = () => {
 
+    //to build the side bar
     const CustomLink = ({ href, title, icon, className }) => {
         const router = usePathname()
         return (
-            <Link href={href}
+            <Link href={href} onClick={toggleSideBar}
                 className={`${styles.link}  ${router === href ? styles.active : ''}`} >
                 {icon}
-                {title}
+                <span className={styles.title}>{title}</span>
             </Link>
         )
     }
+    //to show sideBar
+    const [show,setShow] =  useState(false)
+    const toggleSideBar = () => {
+        return setShow(prev => (prev ? false : true))
+    }
 
     return (
-        <div className={styles.sideBar}>
+        <div className={`${styles.sideBar} ${show ? styles.open : styles.close}`}>
 
             <div className={styles.header}>
                 <div className={styles.logoContainer}>
                     <Image src='https://wpriverthemes.com/HTML/stag/assets/imgs/logo.svg' width={60} height={60} alt="logo" className={styles.logo} />
                     <h2>STAG</h2>
                 </div>
-
                 <Clock
-                    format={'HH:mm A'}
+                    format={'h:mm A'}
                     ticking={true}
-                    timezone={'cairo/Egypt'}
+                    // timezone={'EEST'}
                     className={styles.clock} />
+                    <MenuToClose toggleSideBar={toggleSideBar} show={show}/>
             </div>
 
             <div className={styles.titleContainer}>
-                <Image src='/me.png' alt='' width={70} height={70} className={styles.avatar} />
+                <div className={styles.avatar}>
+                    <Image src='/me.png' alt='' fill />
+                </div>
                 <div className={styles.titleName}>
                     <h2>David Henderson</h2>
                     <p>Back End Developer</p>
@@ -65,10 +75,10 @@ const SideBar = () => {
 
             <div className={styles.footer}>
                 <div className={styles.social}>
-                    <IoLogoDribbble  className={styles.iconSocial}/>
-                    <BsInstagram  className={styles.iconSocial}/>
-                    <BsTwitterX  className={styles.iconSocial}/>
-                    <IoLogoYoutube className={styles.iconSocial}/>
+                    <IoLogoDribbble className={styles.iconSocial} />
+                    <BsInstagram className={styles.iconSocial} />
+                    <BsTwitterX className={styles.iconSocial} />
+                    <IoLogoYoutube className={styles.iconSocial} />
                 </div>
                 <div className={styles.year}>
                     <p>© 2024</p>

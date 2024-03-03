@@ -1,69 +1,112 @@
 @use '../SASS/Main' as*;
 
 .main{    
-    background-color: var(--bg-back) ;
-    border: 1px solid var(--mix-bg-back);
-    @include size(100% , 100%);
-    color: white;
-    margin: 10px 50px;
-    padding: 20px;
+    @include size(calc(100% - 350px) , 100%);
+    margin-left: 360px;
 
-    @include mq(720px){
+    @include mq(1100px){
+        margin-left: 160px;
+        @include size(calc(100% - 150px) , 100%);
+    }
+
+    @include mq(600px){
+        margin: 90px 10px ;
+        @include size(100% , 100%);      
     }
 }
 
 .about{
+    background-color: var(--bg-back) ;
+    border: 1px solid var(--mix-bg-back);    
+    color: white;
+    margin: 10px 40px;
+    padding: 20px;
     @include flex(center,center);
     gap: 20px;
+
+    @include mq(1450px){
+        @include flex-col(center,center);
+        flex-direction: column-reverse;
+        margin: 10px 20px;
+    }
+    @include mq(1100px){
+        margin: 10px 10px;
+    }
+    @include mq(600px){
+        margin: 10px 10px;        
+    }
+}
+.imgBox{
+    position: relative;
+    @include size(300px , 390px);
+
+    @include mq(1450px){
+        @include size(80% , 390px);
+    }
 }
 
 .hero{
+    @include size(calc(100% - 300px) , 100%);
     @include flex-col(start, start);
     gap: 10px;
+
+    @include mq(1450px){
+        @include size(100% , 100%);
+    }
 }
 .headerHero{
-    @include flex(space-between,center);
+    @include flex(space-between,start);
     border: 1px solid var(--mix-bg-back);
     background-color: var(--bg-card);
+    @include size(100% , 70px);
     padding: 10px;
-    gap: 10px
+    gap: 10px;
+
+    @include mq(1450px){
+        @include flex-col(center,center);
+        @include size(100% , 200px);
+    }
 }
-//freelance  *************
-.freelance {
+//************* freelance  *************
+.headerHero .tap{
+    position: relative;
     @include flex(center,center);
-    @include size(270px , 50px);
+    height: 50px;
+    background-color: var(--bg-card-slide);
+    border: 1px solid var(--mix-bg-back);
+    overflow: hidden;
+    gap: 1px;
+}
+
+.headerHero .freelance {
+    @include size(40% , 50px);
     gap: 5px;
     text-transform: capitalize;
+
+    @include mq(1450px){
+        @include size(100% , 50px);
+    }
 }
-//*************
-//clock *************
-.clockBox{
-    @include size(250px , 50px);
-    @include flex(center,center);
-    background-color: var(--bg-card);
+//************* //clock *************
+.headerHero .clockBox{
+    @include size(40%  , 50px);
     text-transform: capitalize;
+
+    @include mq(1450px){
+        @include size(100% , 50px);
+    }
 }
 .Clock{
     fill: $cyan-5;    
     margin-right: 5px;
 }
 
-//*************
-//contact *************
-.contact{
-    width: 150px;
-    @include flex(center,center);
+//************* //contact *************
+.headerHero .contact{
+    @include size(20% , 50px);
     overflow: hidden;
     text-transform: capitalize;
     border: 1px solid var(--mix-bg-back);
-}
-.headerHero .tap{
-    position: relative;
-    height: 50px;
-    background-color: var(--bg-card-slide);
-    border: 1px solid var(--mix-bg-back);
-    overflow: hidden;
-    gap: 1px;
 
     &:hover .two{        
         visibility: visible;
@@ -75,13 +118,17 @@
         opacity: 0;
         transform: translateY(-15px);
     }
+
+    @include mq(1450px){
+        @include size(100% , 50px);
+    }
 }
+
 .arrow{
     rotate: 45deg;
     transform: translateY(5px);
     margin-left: 8px;
 }
-
 .two{
     position: absolute;
     visibility: hidden;
@@ -96,30 +143,50 @@
 }
 
 
-//*************
-
-//bodyHero *************
+//************* //bodyHero *************
 .bodyHero{
     @include size(100% , 100%);
-    @include flex(start, center);
+    @include flex(center, center);
     gap: 10px;
+
+    @include mq(1100px){
+        @include flex-col(center,center);
+        @include size(100% , 100%);
+    }
 }
-.inform{
-    @include size(55% , 100%);
+.bodyHero .inform{
+    @include size(55% , 300px);
     @include flex-col(start, start);
     background-color: var(--bg-card);
     border: 1px solid var(--mix-bg-back);
     padding : 20px;
     gap: 10px;
+
+    @include mq(1100px){
+        @include flex-col(center,center);
+        @include size(100% ,  300px);   
+        padding : 10px;
+        gap: 5px;  
+    }
 }
-.inform p{
+.bodyHero .inform h1{
+    font-size: 25px;
+    @include mq(1100px){
+        font-size: 20px; 
+    }
+}
+.bodyHero .inform p{
     color: var(--txt-clr);
     line-height: 30px;
     font-size: 14px;
 }
-.sign{
-    @include size(100% , 100%);
+.bodyHero .inform .sign{
+    @include size(100% , 40px);
     @include flex-col(center, end);
+
+    @include mq(768px){
+        @include size(100% , 20px);        
+    }
 }
 //*************
 
@@ -131,13 +198,18 @@
     padding: 10px;
     position: relative;
     overflow: hidden;
+
+    @include mq(1100px){
+        @include flex-col(start,center);
+        @include size(100% , 300px);       
+    }
 }
-.headerContact{
+.myContact .headerContact{
     @include flex(center, center);
     @include size(100% , 50px);
     gap: 15px;
 }
-.adress{
+.myContact .adress{
     
     border: 1px solid var(--mix-bg-back);
     color: white;
@@ -147,7 +219,7 @@
     padding: 15px 20px;
 }
 
-.place{    
+.myContact .place{    
     border: 1px solid var(--mix-bg-back);
     color: white;
     font-size: 14px;
@@ -155,7 +227,7 @@
     background-color: var(--bg-card-slide);
     padding: 15px 20px;
 }
-.earth{
+.myContact .earth{
     position: absolute;
     margin: 0;
     padding: 0;
@@ -169,5 +241,134 @@
     }
     100%{
         transform: rotate(360deg);
+    }
+}
+
+//***** section part of project
+
+.projectContainer{
+    background-color: var(--bg-back) ;
+    border: 1px solid var(--mix-bg-back);  
+    margin: 10px 40px;
+    padding: 10px;
+
+    @include mq(1450px){
+        margin: 10px 20px;
+    }
+    @include mq(1100px){
+        margin: 10px 10px;
+    }
+    @include mq(600px){
+        margin: 10px 10px;        
+    }
+}
+.projectContainer .tapHeader{
+    position: relative;
+    @include size(100% , 80px);
+    border: 1px solid var(--mix-bg-back);   
+    @include flex(space-between,center); 
+    background-color: var(--bg-card) ;
+    padding: 0 10px;
+
+    @include mq(1450px){
+        @include size(100% , 140px);
+        flex-direction: column-reverse;
+    }
+}
+
+.projectContainer .tap{
+    @include size(100% , 80px);
+    @include flex(space-between,center); 
+
+    @include mq(1450px){
+        @include flex(space-evenly,center);         
+    }
+}
+.projectContainer .btnProject{
+    position: relative;
+    @include size(150px , 50px);
+    border: 1px solid var(--mix-bg-back); 
+    background-color: var(--bg-card-slide);
+    @include flex(center,center);
+    text-transform: capitalize;
+    color: var(--text);
+    z-index: 10;
+
+    &:hover .two{        
+        visibility: visible;
+        opacity:1;
+        transform: translateY(0px);
+        }
+    &:hover .one{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+}
+//**** bunner ***
+.projectContainer .bunner{
+    position: absolute;
+    transform: translateX(150px);
+    display: flex;
+    align-items: center;
+    @include size(72% , 50px);
+    border: 1px solid var(--mix-bg-back); 
+    background-color: var(--bg-card-slide);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+
+    @include mq(1450px){
+        position: relative;
+        transform: translateX(10px);
+        width: 95%;
+    }
+
+    @include mq(992px){
+    width: 100%;
+}
+}
+.projectContainer .bunner ul{ 
+    display: flex;
+    animation: move 20s linear infinite ;
+    gap: 100px;
+    white-space: nowrap;
+    color: var(--text);
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(25%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+    
+    }
+
+.projectContainer   .arrows{
+        @include size(110px , 50px);
+        @include flex(center,center);
+        background-color: var(--bg-card);
+        gap: 10px;
+    }
+.arrows .rightArrow,
+.arrows .leftArrow{
+    @include size(50px , 50px);
+    @include flex(center,center);
+    border: 1px solid var(--mix-bg-back); 
+    background-color: var(--bg-card-slide);
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover{
+        border: 1px solid var(--text); 
+    }
+}
+.projectContainer .iconArrow{
+    font-size: 30px;
+    color: var(--txt-clr);
+
+    &:active{
+        color: var(--text);
     }
 }

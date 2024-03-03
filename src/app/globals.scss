@@ -9,13 +9,12 @@
   body {
     scroll-behavior: smooth;
     overflow-x: hidden;    
-    @include flex(start,start);
+    @include flex(center,start);
     width: 100vw;
     background-color: #000;
   }
   
 
-  
   /*========================
       scrollbar
   =========================*/
@@ -77,12 +76,13 @@
     /*========================
         varible
   =========================*/
+
   :root{
     --bg : #000 ;
-    --bg-back:#040B0F;
-    --mix-bg-back : color-mix(in lab, #040B0F 100%, #fff 10%);
-    --bg-card :#031823;
-    --bg-card-slide:#031f2e;
+    --bg-back:#041116;
+    --mix-bg-back : color-mix(in lab, #041116 100%, #fff 10%);
+    --bg-card :#041720;
+    --bg-card-slide:#031E2F;
 
     --text : #fff;
     --text-clock : #BCBCBC;

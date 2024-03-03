@@ -11,12 +11,17 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    width: 30px;
+    width: 3px;
     height: 40px;
     overflow: hidden;
-    // display: none;
+    display: none;
+
+    @include mq(600px){      
+      display: block;
+    }
   }
   .content{
+    display: block;
     @extend %closeBar;
     inset: 29px -10px 8px;
   }
@@ -31,22 +36,14 @@
     z-index: 2;
   }
 
-  .barToclose:hover .content{
-    display: none;
-  }
   .active{
     width: 20px;
     height: 40px;
   }
-  .barToclose:hover::after{
-    transform: rotate(45deg);
-    background-color: red;
+  .active .barToclose{
+    width: 30px;
   }
-  .barToclose:hover::before{
-    inset: 18.5px -10px;
-    transform: rotate(135deg);
-    background-color: red;
-  }
+
 
   .active .content{
     display: none;
