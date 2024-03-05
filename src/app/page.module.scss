@@ -1,17 +1,17 @@
 @use '../SASS/Main' as*;
 
 .main{    
-    @include size(calc(100% - 350px) , 100%);
-    margin-left: 360px;
+    @include size(calc(100% - 400px) , 100%);
+    margin-left: 330px;
 
     @include mq(1100px){
-        margin-left: 160px;
-        @include size(calc(100% - 150px) , 100%);
+        margin-left: 140px;
+        @include size(calc(100% - 180px) , 100%);
     }
 
     @include mq(600px){
-        margin: 90px 10px ;
-        @include size(100% , 100%);      
+        margin: 80px 0px ;
+        @include size(99% , 100%);      
     }
 }
 
@@ -277,14 +277,6 @@
     }
 }
 
-.projectContainer .tap{
-    @include size(100% , 80px);
-    @include flex(space-between,center); 
-
-    @include mq(1450px){
-        @include flex(space-evenly,center);         
-    }
-}
 .projectContainer .btnProject{
     position: relative;
     @include size(150px , 50px);
@@ -312,7 +304,7 @@
     transform: translateX(150px);
     display: flex;
     align-items: center;
-    @include size(72% , 50px);
+    @include size(80% , 50px);
     border: 1px solid var(--mix-bg-back); 
     background-color: var(--bg-card-slide);
     overflow: hidden;
@@ -338,7 +330,7 @@
 
 @keyframes move {
     0% {
-        transform: translateX(25%);
+        transform: translateX(28%);
     }
     100% {
         transform: translateX(-100%);
@@ -346,78 +338,5 @@
     
     }
 
-.projectContainer   .arrows{
-        @include size(110px , 50px);
-        @include flex(center,center);
-        background-color: var(--bg-card);
-        gap: 10px;
-    }
-.arrows .rightArrow,
-.arrows .leftArrow{
-    @include size(50px , 50px);
-    @include flex(center,center);
-    background-color: var(--bg-card-slide);
-    cursor: pointer;
-    transition: 0.5s;
-
-    &:hover{
-        border: 1px solid var(--text); 
-        fill: var(--text);
-    }
-}
-.projectContainer .iconArrow{
-    font-size: 30px;
-}
-
-// move cards with arrows
-//1-color of arrows
-.activee{
-    border: 1px solid var(--text);
-    color: var(--text);
-}
-.noActivee{
-    color: var(--txt-clr);
-    border: 1px solid var(--mix-bg-back); 
-}
-//  move cards
-.moveCards{
-    transform: translateX(-360px);
-}
-.backMove{
-    transform: translateX(0px);
-}
-
-// ********* body projects *******
-
-.tapBody{
-    overflow: hidden;
-}
-.cards{
-    display: grid;
-    grid-template-rows: auto auto; /* Two rows */
-    grid-template-columns: auto auto auto auto; /* Three columns */
-    transition: transform 1s;
-}
-.cards .card{
-    background-color: var(--bg-card-slide);
-    border: 1px solid var(--mix-bg-back);
-    padding: 10px;
-    @include size(340px , 360px);
-    @include flex-col(start,start);
-    gap: 10px;
-}
-.cards .imgCard{
-    position: relative;
-    @include size(320px , 280px);
-}
-.card .bodyCard{
-    @include flex-col(center,start);
-    gap: 5px;
-}
-.card .bodyCard h5{
-    color: var(--text);
-    font-size: 15px;
-}
-.card .bodyCard h5:last-child{
-    color: var(--txt-clr);
-}
+//***** bodyCard *****
+// in swiper scss

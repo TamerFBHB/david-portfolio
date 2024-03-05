@@ -1,15 +1,16 @@
 @use '../../../SASS/Main' as* ;
 
 .main{    
-    @include size(calc(100% - 350px) , 100%);
-    margin-left: 360px;
+    @include size(calc(100% - 360px) , 100%);
+    margin-left: 340px;
 
     @include mq(1100px){
-        margin-left: 160px;
-        @include size(calc(100% - 150px) , 100%);
+        margin-left: 150px;
+        @include size(calc(100% - 160px) , 100%);
     }
+
     @include mq(600px){
-        margin: 90px 10px ;
+        margin: 80px 10px ;
         @include size(100% , 100%);      
     }
 }

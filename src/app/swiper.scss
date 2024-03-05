@@ -1,0 +1,80 @@
+@use '../SASS/Main' as * ;
+
+.mySwiper{
+    @include size(100% , 750px);
+    display: grid;
+}
+.swiper-pagination {
+    display: none;
+}
+
+.swiper-slide {    
+    background-color: var(--bg-card-slide);
+    border: 1px solid var(--mix-bg-back);
+
+    &:hover .two{        
+        visibility: visible;
+        opacity:1;
+        transform: translateY(0px);
+        }
+    &:hover .one{
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    &:hover .bodyCard h5:first-child{
+        color: $cyan-5;
+    }
+}
+.mySwiper .imgCard{
+    position: relative;
+    @include size(100% , 250px);
+
+}
+.bodyCard {
+    @include size(100% , 100px);
+    @include flex(space-between,center);
+    color: var(--text);
+
+
+}
+.bodyCard .brands{
+    @include flex-col(space-between,center);
+    color: var(--text);
+    gap: 10px;
+}
+ .bodyCard h5{
+    color: var(--text);
+    font-size: 16px;
+    transition: 0.5s;
+}
+ .bodyCard h5:last-child{
+    color: var(--txt-clr);
+}
+.boxArrow{
+    @include flex(center,center);
+    border: 1px solid var(--mix-bg-back); 
+    background-color: var(--bg-card);
+    @include size(50px , 50px);
+}
+ .boxArrow .arrowBtn{
+    position: relative;
+    @include size(20px , 15px);
+    overflow: hidden;
+}
+ .arrowBtn .two{
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(15px);
+    color: $cyan-5;
+    transition: 0.5s;
+}
+ .arrowBtn .one{    
+    position: absolute;
+    transition: 0.5s;
+}
+  .arrowBtnIcon{
+    transform: rotate(90deg);
+}
+

@@ -5,10 +5,17 @@ import { CiClock1 } from "react-icons/ci";
 import { FaArrowUp } from "react-icons/fa6";
 import PulseDott from "@/component/pulseDott/PulseDott";
 import download from '../../public/download.png'
-import { MdOutlineKeyboardArrowRight, MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from 'axios';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import './swiper.scss'
+import 'swiper/css';
+import 'swiper/css/grid';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Grid, Pagination, Navigation } from 'swiper/modules';
 
 
 export default function Home() {
@@ -20,24 +27,15 @@ export default function Home() {
   async function getAllPosts() {
     try {
       const { data } = await axios.get("https://dummyjson.com/products");
-      setPost(data.products.slice(0,8))
+      setPost(data.products.slice(0, 8))
     } catch (error) {
-        setError(error.message)
+      setError(error.message)
     }
-}
+  }
   useEffect(() => {
     getAllPosts();
   }, []);
 
-  
-  //to move cards with arrow
-  const [index, setIndex] = useState('left');
-  const moveRight = () => {
-    setIndex('left');
-  };
-  const moveLeft = () => {
-    setIndex('right');
-  };
   return (
     <main className={styles.main}>
       <div className={styles.about}>
@@ -113,57 +111,79 @@ export default function Home() {
             </ul>
           </div>
 
-          <div className={styles.tap}>
-
-            <Link href="/projects" className={styles.btnProject}>
-              <div className={styles.one}>
-                Project
-                <FaArrowUp className={styles.arrow} />
-              </div>
-              <div className={styles.two}>
-                Project
-                <FaArrowUp className={styles.arrow} />
-              </div>
-            </Link>
-
-            <div className={styles.arrows}>
-              <div className={`${styles.leftArrow} ${index === 'left' ? styles.noActivee : styles.activee}`}
-              onClick={moveRight}>
-                <MdOutlineKeyboardArrowLeft className={styles.iconArrow} />
-              </div>
-              <div className={`${styles.rightArrow} ${index === 'right' ? styles.noActivee : styles.activee}`}
-              onClick={moveLeft}>
-                <MdOutlineKeyboardArrowRight className={styles.iconArrow} />
-              </div>
+          <Link href="/projects" className={styles.btnProject}>
+            <div className={styles.one}>
+              Project
+              <FaArrowUp className={styles.arrow} />
             </div>
+            <div className={styles.two}>
+              Project
+              <FaArrowUp className={styles.arrow} />
+            </div>
+          </Link>
 
-          </div>
         </div>
 
         <div className={styles.tapBody}>
-          <div className={`${styles.cards} ${index === 'right' ? styles.moveCards : styles.backMove}`}>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+            breakpoints={{
+              300: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1200: {
+                slidesPerView: 3,
+              },
+            }}
+            grid={{
+              rows: 2,
+            }}
+            modules={[Grid, Pagination, Navigation]}
+            navigation={true} pagination={true}
+
+            className="mySwiper"
+          >
+
             {error == null ? (post.map((item) => {
               return (
-                <Link href={`/projects/${item.id}`}>
-                  <div className={styles.card}>
-                    <div className={styles.imgCard}>
+                <SwiperSlide >
+                  <Link href={`/projects/${item.id}`}
+                    className={styles.Card}>
+                    <div className='imgCard'>
                       <Image
                         src={item.thumbnail}
                         alt="Picture of the author"
                         fill
-                        className={styles.img}
+                        className='img'
                       />
                     </div>
-                    <div className={styles.bodyCard}>
-                      <h5>brand : {item.brand}  </h5>
-                      <h5>price : {item.price} $ </h5>
+                    <div className="bodyCard">
+                      <div className="brands">
+                        <h5>brand : {item.brand}  </h5>
+                        <h5>price : {item.price} $ </h5>
+                      </div>
+
+                      <div className="boxArrow">
+                      <div className="arrowBtn">
+                        <div className="one">
+                          <FaArrowUp className="arrowBtnIcon" />
+                        </div>
+                        <div className="two">
+                          <FaArrowUp className="arrowBtnIcon"/>
+                        </div>
+                      </div>
+                      </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
+                </SwiperSlide>
               )
             })) : (<h1>Request failed with status code 404 </h1>)}
 
-          </div>
+          </Swiper>
         </div>
       </div>
     </main>
